@@ -1,0 +1,13 @@
+.setting_input {
+    display: flex;
+    flex: 1 2 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    outline: none;
+}
+
+.input_red {
+    border: 3px solid red;
+    /*background-color: red;*/
+}

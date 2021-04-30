@@ -1,0 +1,18 @@
+.btn {
+    display: inline-block;
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+.btn button {
+    width: 90%;
+    cursor: pointer;
+    border-radius: 0.5em;
+    border: none;
+}
+.btn_text {
+    font-size: 1.7em;
+    font-family: sans-serif;
+    font-weight: bold;
+}

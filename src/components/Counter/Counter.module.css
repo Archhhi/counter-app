@@ -1,0 +1,50 @@
+.container {
+    display: block;
+    width: 450px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid skyblue;
+    border-radius: 0.7em;
+    margin: 40px auto;
+}
+
+.scoreboard {
+    display: flex;
+    background-color: skyblue;
+    margin: 0 auto;
+    border-radius: 0.7em;
+    margin-bottom: 10px;
+    padding: 15px 15px;
+}
+
+.count {
+    display: flex;
+    margin: 0 auto;
+    color: #000;
+    font-size: 6em;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.message {
+    display: flex;
+    margin: 37px auto;
+    color: #000;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.count_red {
+    color: red;
+}
+
+.container_btn {
+    border: 1px solid skyblue;
+    padding: 10px;
+    border-radius: 0.7em;
+}
+
+.btn {
+    display: inline-block;
+}

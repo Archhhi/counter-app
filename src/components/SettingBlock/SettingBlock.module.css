@@ -1,0 +1,53 @@
+.container {
+    display: block;
+    width: 450px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid skyblue;
+    border-radius: 0.7em;
+    margin: 40px auto;
+}
+
+.window_settings {
+    display: flex;
+    flex-direction: column;
+    background-color: skyblue;
+    margin: 0 auto;
+    border-radius: 0.7em;
+    margin-bottom: 10px;
+    padding: 20px 15px;
+}
+
+.setting_max_value {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.setting_start_value {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.params_value {
+    display: flex;
+    flex: 2 1 50px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.container_btn {
+    border: 1px solid skyblue;
+    padding: 10px;
+    border-radius: 0.7em;
+}
+
+.input_red {
+    border: 3px solid red;
+    /*background-color: red;*/
+}
