@@ -6,7 +6,7 @@ type PropsType = {
   startValue: number
   maxValue: number
   disabled: boolean
-  changeCount: () => void
+  changeCount: (value: any) => void
 }
 
 export function Button(props: PropsType) {

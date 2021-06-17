@@ -2,42 +2,41 @@ import React, {ChangeEvent, useState} from "react";
 import s from './SettingBlock.module.css';
 import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "redux";
+import {controlAC, statusChangeAC} from "../../redux/actions/addcountAC";
+import {StateType} from "../../redux/store";
+import {CounterStateType} from "../../redux/reducers/counter-reducer";
 
-type PropsType = {
-  maxValue: number
-  startValue: number
-  status: 'setting' | 'error' | 'ok'
-  addCount: () => void
-  resetCount: () => void
-  setStatus: (value: 'setting' | 'error' | 'ok') => void
-  control: (startValue: number, maxValue: number) => void
-}
+export function SettingBlock() {
 
-export function SettingBlock(props: PropsType) {
-  let [maxValue, setMaxValue] = useState(props.maxValue)
-  let [startValue, setStartValue] = useState(props.startValue)
+  const dispatch = useDispatch<Dispatch>()
+  const state = useSelector<StateType, CounterStateType>(state => state.counter)
+
+  let [maxValue, setMaxValue] = useState(state.maxValue)
+  let [startValue, setStartValue] = useState(state.startValue)
 
   function onChangeMaxValue(e: ChangeEvent<HTMLInputElement>) {
     setMaxValue(+e.currentTarget.value)
     if (+e.currentTarget.value < 1 || +e.currentTarget.value <= startValue) {
-      props.setStatus('error')
+      dispatch(statusChangeAC('error'))
     } else {
-      props.setStatus('setting')
+      dispatch(statusChangeAC('setting'))
     }
   }
 
   function onChangeStartValue(e: ChangeEvent<HTMLInputElement>) {
     setStartValue(+e.currentTarget.value)
     if (+e.currentTarget.value < 0 || +e.currentTarget.value >= maxValue) {
-      props.setStatus('error')
+      dispatch(statusChangeAC('error'))
     } else {
-      props.setStatus('setting')
+      dispatch(statusChangeAC('setting'))
     }
   }
 
   function onClickFunction() {
-    props.control(maxValue, startValue)
-    props.setStatus('ok')
+    dispatch(controlAC(maxValue, startValue))
+    dispatch(statusChangeAC('ok'))
   }
 
   return (
@@ -47,7 +46,7 @@ export function SettingBlock(props: PropsType) {
           <span className={s.params_value}>max value: </span>
           <Input value={maxValue}
                  name={'maxValue'}
-                 status={props.status}
+                 status={state.status}
                  onChange={onChangeMaxValue}
           />
         </div>
@@ -55,17 +54,17 @@ export function SettingBlock(props: PropsType) {
           <span className={s.params_value}>start value: </span>
           <Input value={startValue}
                  name={'startValue'}
-                 status={props.status}
+                 status={state.status}
                  onChange={onChangeStartValue}
           />
         </div>
       </div>
       <div className={s.container_btn}>
         <Button name={'set'}
-                startValue={props.startValue}
-                maxValue={props.maxValue}
+                startValue={state.startValue}
+                maxValue={state.maxValue}
                 changeCount={onClickFunction}
-                disabled={props.status === 'error'}
+                disabled={state.status === 'error'}
         />
       </div>
     </div>
